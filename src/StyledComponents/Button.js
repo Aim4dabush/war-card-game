@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { primaryColor, secondaryColor } from "../StyledComponents/Variables";
 
-const Button = styled.button`
+export const Button = styled.button`
   background-color: ${primaryColor};
   border: 2px solid ${secondaryColor};
-  border-radius: 20px;
+  border-radius: 5px;
   color: ${secondaryColor};
+  cursor: pointer;
   font-size: 25px;
   padding: 5px 10px;
   width: fit-content;

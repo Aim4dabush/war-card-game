@@ -4,13 +4,14 @@ import React from "react";
 import { ActiveBounce } from "../../../StyledComponents/Button";
 import { WelcomeCard } from "../../../StyledComponents/MainCard";
 
+//Fontawesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faJetFighter } from "@fortawesome/pro-regular-svg-icons";
+
 function WelcomePage() {
   return (
     <WelcomeCard>
-      <img
-        src={process.env.PUBLIC_URL + "/images/card-symbols.png"}
-        alt="card symbols"
-      />
+      <FontAwesomeIcon icon={faJetFighter} className="jet" />
       <h1>Lets Start A War</h1>
       <ActiveBounce>Charge!</ActiveBounce>
     </WelcomeCard>
