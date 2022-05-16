@@ -9,7 +9,7 @@ export const Button = styled.button`
   cursor: pointer;
   font-size: 25px;
   padding: 5px 10px;
-  width: fit-content;
+  width: 184px;
 `;
 
 export const ActiveBounce = styled(Button)`
@@ -17,7 +17,7 @@ export const ActiveBounce = styled(Button)`
 
   @keyframes activeBounce {
     to {
-      transform: translateY(-30px);
+      transform: translateY(-20px);
     }
   }
 `;
@@ -37,6 +37,33 @@ export const ActivePulse = styled(Button)`
     }
     100% {
       transform: scale(1);
+    }
+  }
+`;
+
+export const HoverBounce = styled(Button)`
+  &:hover {
+    animation: bounce 500ms infinite alternate ease-out;
+  }
+
+  @keyframes bounce {
+    to {
+      transform: translateY(-15px);
+    }
+  }
+`;
+
+export const HoverFlip = styled(Button)`
+  &:hover {
+    animation: flip 500ms 1 forwards linear;
+  }
+
+  @keyframes flip {
+    50% {
+      transform: rotateX(180deg);
+    }
+    100% {
+      transform: rotateX(360deg);
     }
   }
 `;

@@ -118,6 +118,10 @@ export const PlayerNameCard = styled(MainCard)`
     width: 164px;
   }
 
+  .rotate:hover {
+    animation: bounce 500ms infinite alternate ease-out 750ms;
+  }
+
   .rotate:hover .enter-button {
     transform: rotateX(-87deg) translateY(100%);
   }
@@ -135,6 +139,12 @@ export const PlayerNameCard = styled(MainCard)`
     top: 0;
     left: -78%;
     width: 100%;
+  }
+
+  @keyframes bounce {
+    to {
+      transform: translateY(-10px);
+    }
   }
 
   @keyframes symbols {
