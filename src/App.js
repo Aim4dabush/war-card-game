@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+
+//Components
+import Game from "./Components/Game/Game";
+import Intro from "./Components/Intro/Intro";
 
 //Styles
 import "./App.css";
 import { Container } from "./StyledComponents/Container";
-
-//Components
-import Intro from "./Components/Intro/Intro";
-import { useState } from "react";
 
 export const War = React.createContext({});
 
@@ -25,7 +25,7 @@ function App() {
         setStartGame: setStartGame,
       }}
     >
-      <Container>{!startGame && <Intro />}</Container>
+      <Container>{!startGame ? <Intro /> : <Game />}</Container>
     </War.Provider>
   );
 }
