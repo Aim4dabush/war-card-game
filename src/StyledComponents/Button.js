@@ -24,15 +24,16 @@ export const ActiveBounce = styled(Button)`
 
 export const ActivePulse = styled(Button)`
   animation: activePulse 1000ms infinite ease-out;
+  transform: scale(1);
 
   @keyframes activePulse {
-    70% {
-      transform: scale(1.5);
-    }
-    80% {
-      transform: scale(1);
+    85% {
+      transform: scale(1.3);
     }
     90% {
+      transform: scale(1.1);
+    }
+    95% {
       transform: scale(1.3);
     }
     100% {
@@ -64,6 +65,28 @@ export const HoverFlip = styled(Button)`
     }
     100% {
       transform: rotateX(360deg);
+    }
+  }
+`;
+
+export const HoverPulse = styled(Button)`
+  transform: scale(1);
+  &:hover {
+    animation: bounce 1000ms infinite ease-out;
+  }
+
+  @keyframes bounce {
+    85% {
+      transform: scale(1.3);
+    }
+    90% {
+      transform: scale(1.1);
+    }
+    95% {
+      transform: scale(1.3);
+    }
+    100% {
+      transform: scale(1);
     }
   }
 `;

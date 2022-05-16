@@ -46,7 +46,7 @@ export const SideBar = styled.div`
     top: -2px;
     transform: translateY(-100%);
     transform-origin: bottom;
-    transition: transform 500ms ease-in;
+    transition: transform 500ms ease-in 500ms;
     width: 46px;
     z-index: -1;
   }
@@ -81,7 +81,7 @@ export const SideBar = styled.div`
     top: -2px;
     transform: translateX(100%);
     transform-origin: right;
-    transition: transform 500ms ease-in;
+    transition: transform 500ms ease-in 750ms;
     width: 46px;
     z-index: -1;
   }
@@ -99,7 +99,7 @@ export const SideBar = styled.div`
     top: -2px;
     transform: translateY(100%);
     transform-origin: top;
-    transition: transform 500ms ease-in;
+    transition: transform 500ms ease-in 1000ms;
     width: 46px;
     z-index: -1;
   }

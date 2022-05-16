@@ -1,5 +1,10 @@
 import styled from "styled-components";
-import { backgroundColor, playerColor, primaryColor } from "./Variables";
+import {
+  backgroundColor,
+  computerColor,
+  playerColor,
+  primaryColor,
+} from "./Variables";
 
 const MainCard = styled.div`
   background-color: ${backgroundColor};
@@ -178,6 +183,141 @@ export const StartGameCard = styled(MainCard)`
   }
 `;
 
-export const PlayerWinsCard = styled(MainCard)``;
+export const PlayerWinsCard = styled(MainCard)`
+  align-items: center;
+  color: ${playerColor};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1em;
+  position: relative;
 
-export const ComputerWinsCard = styled(MainCard)``;
+  .award {
+    font-size: 75px;
+  }
+
+  .balloon {
+    font-size: 30px;
+  }
+
+  .balloons {
+    align-items: flex-end;
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+  }
+
+  .balloonOne {
+    animation: balloon 2000ms infinite ease-out;
+  }
+
+  .balloonTwo {
+    animation: balloon 3000ms infinite ease-in-out;
+  }
+
+  .balloonThree {
+    animation: balloon 2750ms infinite ease-in;
+  }
+
+  .balloonFour {
+    animation: balloon 2500ms infinite ease-out;
+  }
+
+  .balloonFive {
+    animation: balloon 2250ms infinite ease-in-out;
+  }
+
+  .balloonSix {
+    animation: balloon 2500ms infinite ease-in;
+  }
+
+  .balloonSeven {
+    animation: balloon 2000ms infinite ease-in-out;
+  }
+
+  .balloonEight {
+    animation: balloon 2000ms infinite ease-out;
+  }
+
+  h1 {
+    font-size: 50px;
+  }
+
+  .next-game {
+    border: 3px solid ${playerColor};
+    color: ${playerColor};
+  }
+
+  @keyframes ball {
+    to {
+      transform: translateY(-500px);
+    }
+  }
+`;
+
+export const ComputerWinsCard = styled(MainCard)`
+  align-items: center;
+  color: ${computerColor};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+
+  .next-game {
+    border: 3px solid ${computerColor};
+    color: ${computerColor};
+  }
+
+  .sad-face {
+    font-size: 75px;
+  }
+
+  .skull {
+    font-size: 30px;
+  }
+
+  .skulls {
+    align-items: flex-end;
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+  }
+
+  .skullOne {
+    animation: balloon 2000ms infinite ease-out;
+  }
+
+  .skullTwo {
+    animation: balloon 3000ms infinite ease-in-out;
+  }
+
+  .skullThree {
+    animation: balloon 2750ms infinite ease-in;
+  }
+
+  .skullFour {
+    animation: balloon 2500ms infinite ease-out;
+  }
+
+  .skullFive {
+    animation: balloon 2250ms infinite ease-in-out;
+  }
+
+  .skullSix {
+    animation: balloon 2500ms infinite ease-in;
+  }
+
+  .skullSeven {
+    animation: balloon 2000ms infinite ease-in-out;
+  }
+
+  .skullEight {
+    animation: balloon 2000ms infinite ease-out;
+  }
+`;
