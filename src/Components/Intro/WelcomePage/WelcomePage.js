@@ -8,12 +8,16 @@ import { WelcomeCard } from "../../../StyledComponents/MainCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faJetFighter } from "@fortawesome/pro-regular-svg-icons";
 
-function WelcomePage() {
+function WelcomePage({ setReady }) {
+  const handleCharge = () => {
+    setReady(true);
+  };
+
   return (
     <WelcomeCard>
       <FontAwesomeIcon icon={faJetFighter} className="jet" />
       <h1>Lets Start A War</h1>
-      <ActiveBounce>Charge!</ActiveBounce>
+      <ActiveBounce onClick={handleCharge}>Charge!</ActiveBounce>
     </WelcomeCard>
   );
 }

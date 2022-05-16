@@ -1,8 +1,7 @@
 import React from "react";
 
-//Styles
-import { Button } from "../../../StyledComponents/Button";
-import { PlayerNameCard } from "../../../StyledComponents/MainCard";
+//Context
+import { War } from "../../../App";
 
 //Fontawesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,7 +13,22 @@ import {
   faSpade,
 } from "@fortawesome/pro-regular-svg-icons";
 
-function PlayerNamePage() {
+//Styles
+import { Button } from "../../../StyledComponents/Button";
+import { PlayerNameCard } from "../../../StyledComponents/MainCard";
+import { useContext } from "react";
+
+function PlayerNamePage({ setPlayerReady }) {
+  const { playerName, setPlayerName } = useContext(War);
+
+  const handleInputOnChange = (e) => {
+    setPlayerName(e.target.value);
+  };
+
+  const handleEnterName = () => {
+    setPlayerReady(true);
+  };
+
   return (
     <PlayerNameCard>
       <div className="symbols">
@@ -24,10 +38,12 @@ function PlayerNamePage() {
         <FontAwesomeIcon icon={faSpade} />
       </div>
       <h1>Enter Your Name</h1>
-      <input type="text" />
+      <input type="text" value={playerName} onChange={handleInputOnChange} />
       <div className="rotate">
-        <Button className="enter-button">Enter Name</Button>
-        <Button className="rifle">
+        <Button className="enter-button" onClick={handleEnterName}>
+          Enter Name
+        </Button>
+        <Button className="rifle" onClick={handleEnterName}>
           <FontAwesomeIcon icon={faPersonRifle} />
         </Button>
       </div>

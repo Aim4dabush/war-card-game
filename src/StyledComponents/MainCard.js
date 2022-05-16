@@ -92,6 +92,7 @@ export const PlayerNameCard = styled(MainCard)`
     color: ${playerColor};
     font-size: 30px;
     padding: 5px 10px;
+    text-align: center;
     width: 375px;
   }
 
@@ -140,5 +141,29 @@ export const PlayerNameCard = styled(MainCard)`
     to {
       transform: translateX(170%);
     }
+  }
+`;
+
+export const StartGameCard = styled(MainCard)`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+
+  h1 {
+    font-size: 50px;
+    margin-top: 0;
+  }
+
+  h1 span {
+    color: ${playerColor};
+  }
+
+  h3 {
+    margin-top: 0;
+  }
+
+  ul {
+    margin-top: 0;
   }
 `;
