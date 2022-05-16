@@ -177,3 +177,7 @@ export const StartGameCard = styled(MainCard)`
     margin-top: 0;
   }
 `;
+
+export const PlayerWinsCard = styled(MainCard)``;
+
+export const ComputerWinsCard = styled(MainCard)``;

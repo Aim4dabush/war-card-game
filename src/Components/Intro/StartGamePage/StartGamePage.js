@@ -16,32 +16,12 @@ function StartGamePage() {
 
   const handleStartGame = () => {
     setStartGame(true);
-    getDeck()
-      .then((data) => {
-        return data.deck_id;
-      })
-      .then((id) => {
-        fetch(`https://deckofcardsapi.com/api/deck/${id}/draw/?count=52`)
-          .then((res) => {
-            return res.json();
-          })
-          .then((data) => {
-            if (data.success) {
-              return data.cards;
-            }
-          })
-          .then((cards) => {
-            setDeck(
-              cards.map((card) => {
-                return {
-                  code: card.code,
-                  image: card.image,
-                  value: card.value,
-                };
-              })
-            );
-          });
+    getDeck().then((cards) => {
+      const modDeck = cards.map((card) => {
+        return { code: card.code, image: card.image, value: card.value };
       });
+      setDeck(modDeck);
+    });
   };
 
   return (

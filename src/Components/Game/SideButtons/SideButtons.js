@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
+
+//Context
+import { War } from "../../../App";
 
 //Fontawesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,9 +16,20 @@ import {
 import { SideBar } from "../../../StyledComponents/SideBar";
 
 function SideButtons() {
+  const { setGameOver, setPauseGame } = useContext(War);
+
+  const handleChangeName = () => {
+    setPauseGame(true);
+  };
+
+  const handleNewGame = () => {
+    setGameOver(true);
+    setPauseGame(true);
+  };
+
   return (
     <SideBar>
-      <HoverBounce>New Game</HoverBounce>
+      <HoverBounce onClick={handleNewGame}>New Game</HoverBounce>
       <div className="switch">
         <Button className="deal-cards">Deal Cards</Button>
         <HoverBounce className="deck">
@@ -26,7 +40,7 @@ function SideButtons() {
       <HoverBounce className="shuffle">
         <span>Shuffle</span>
       </HoverBounce>
-      <HoverBounce>Change Name</HoverBounce>
+      <HoverBounce onClick={handleChangeName}>Change Name</HoverBounce>
     </SideBar>
   );
 }

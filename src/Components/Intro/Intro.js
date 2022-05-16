@@ -8,7 +8,6 @@ import WelcomePage from "./WelcomePage/WelcomePage";
 function Intro() {
   const [playerReady, setPlayerReady] = useState(false);
   const [ready, setReady] = useState(false);
-
   return (
     <React.Fragment>
       {!ready && <WelcomePage setReady={setReady} />}
