@@ -69,27 +69,27 @@ function SideButtons() {
   };
 
   const handleFlipCards = () => {
-    setComputerCard(computerDeck.pop());
-    setPlayerCard(playerDeck.pop());
-    if (playerDeck.length === 0 || computerDeck.length === 0) {
+    setComputerCard(computerDeck?.pop());
+    setPlayerCard(playerDeck?.pop());
+    if (playerDeck?.length === 0 || computerDeck?.length === 0) {
       setOutOfCards(true);
     }
 
     if (
-      (playerDeck.length === 0 && playerPile.length === 0) ||
-      (computerDeck.length === 0 && computerPile.length === 0)
+      (playerDeck?.length === 0 && playerPile?.length === 0) ||
+      (computerDeck?.length === 0 && computerPile?.length === 0)
     ) {
       setPauseGame(true);
       setGameOver(true);
     }
 
-    if (Number(playerCard.value) === Number(computerCard.value)) {
+    if (Number(playerCard?.value) === Number(computerCard?.value)) {
       setDeck((prev) => {
         return [...prev, playerCard, computerCard];
       });
     }
 
-    if (Number(playerCard.value) > Number(computerCard.value)) {
+    if (Number(playerCard?.value) > Number(computerCard?.value)) {
       if (deck.length !== 0) {
         setPlayerPile((prev) => {
           return [...prev, ...deck, playerCard, computerCard];
@@ -102,7 +102,7 @@ function SideButtons() {
       }
     }
 
-    if (Number(playerCard.value) < Number(computerCard.value)) {
+    if (Number(playerCard?.value) < Number(computerCard?.value)) {
       if (deck.length !== 0) {
         setComputerPile((prev) => {
           return [...prev, ...deck, computerCard, playerCard];
@@ -139,13 +139,13 @@ function SideButtons() {
   const handleShuffle = () => {
     if (Number(playerCard.value) === Number(computerCard.value)) {
       setComputerDeck((prev) => {
-        return [...computerPile, ...prev];
+        return [...prev, ...computerPile];
       });
       setDeck((prev) => {
-        return [playerCard, computerCard, ...prev];
+        return [...prev, playerCard, computerCard];
       });
       setPlayerDeck((prev) => {
-        return [...playerPile, ...prev];
+        return [...prev, ...playerPile];
       });
       setComputerCard({});
       setComputerPile([]);
@@ -157,18 +157,18 @@ function SideButtons() {
     if (Number(playerCard.value) > Number(computerCard.value)) {
       if (deck.length !== 0) {
         setComputerDeck((prev) => {
-          return [...computerPile, ...prev];
+          return [...prev, ...computerPile];
         });
         setDeck([]);
         setPlayerDeck((prev) => {
-          return [...deck, computerCard, playerCard, ...playerPile, ...prev];
+          return [...prev, ...deck, computerCard, playerCard, ...playerPile];
         });
       } else {
         setComputerDeck((prev) => {
-          return [...computerPile, ...prev];
+          return [...prev, ...computerPile];
         });
         setPlayerDeck((prev) => {
-          return [computerCard, playerCard, ...playerPile, ...prev];
+          return [...prev, computerCard, playerCard, ...playerPile];
         });
       }
       setComputerCard({});
@@ -181,18 +181,18 @@ function SideButtons() {
     if (Number(playerCard.value) < Number(computerCard.value)) {
       if (deck.length !== 0) {
         setComputerDeck((prev) => {
-          return [...deck, playerCard, computerCard, ...computerPile, ...prev];
+          return [...prev, ...deck, playerCard, computerCard, ...computerPile];
         });
         setPlayerDeck((prev) => {
-          return [...playerPile, ...prev];
+          return [...prev, ...playerPile];
         });
         setDeck([]);
       } else {
         setComputerDeck((prev) => {
-          return [playerCard, computerCard, ...computerPile, ...prev];
+          return [...prev, playerCard, computerCard, ...computerPile];
         });
         setPlayerDeck((prev) => {
-          return [...playerPile, ...prev];
+          return [...prev, ...playerPile];
         });
       }
       setComputerCard({});
@@ -201,7 +201,19 @@ function SideButtons() {
       setPlayerPile([]);
       setOutOfCards(false);
     }
+    shuffle(computerDeck);
+    shuffle(playerDeck);
   };
+
+  const shuffle = (arr) => {
+    for (let i = arr.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    console.log(arr);
+  };
+  console.log("computer deck", computerDeck);
+  console.log("player deck", playerDeck);
   return (
     <SideBar>
       <HoverBounce onClick={handleNewGame}>New Game</HoverBounce>
