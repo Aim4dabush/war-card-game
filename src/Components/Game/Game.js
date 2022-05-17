@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 //Components
 import Computer from "./Computer/Computer";
@@ -9,13 +9,30 @@ import SideButtons from "./SideButtons/SideButtons";
 import { BoardCard } from "../../StyledComponents/BoardCard";
 
 function Game() {
+  const [cardsDealt, setCardsDealt] = useState(false);
+  const [computerCard, setComputerCard] = useState({});
+  const [computerPile, setComputerPile] = useState([]);
+  const [playerCard, setPlayerCard] = useState({});
+  const [playerPile, setPlayerPile] = useState([]);
+
   return (
     <BoardCard>
       <div className="game-board">
-        <Computer />
-        <Player />
+        <Computer computerCard={computerCard} />
+        <Player playerCard={playerCard} />
       </div>
-      <SideButtons />
+      <SideButtons
+        cardsDealt={cardsDealt}
+        computerCard={computerCard}
+        computerPile={computerPile}
+        playerCard={playerCard}
+        playerPile={playerPile}
+        setCardsDealt={setCardsDealt}
+        setComputerCard={setComputerCard}
+        setComputerPile={setComputerPile}
+        setPlayerCard={setPlayerCard}
+        setPlayerPile={setPlayerPile}
+      />
     </BoardCard>
   );
 }

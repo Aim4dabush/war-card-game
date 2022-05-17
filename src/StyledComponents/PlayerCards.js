@@ -18,6 +18,15 @@ export const PlayerCard = styled(PlayersCard)`
   justify-content: flex-end;
   left: 2px;
 
+  .cards {
+    display: flex;
+    height: 100%;
+    justify-content: space-evenly;
+    position: relative;
+    top: 12px;
+    width: 100%;
+  }
+
   .header {
     background-color: ${playerColor};
     border-radius: 10px;
@@ -36,6 +45,15 @@ export const ComputerCard = styled(PlayersCard)`
   background-color: ${computerColor};
   left: 2px;
   top: 2px;
+
+  .cards {
+    display: flex;
+    height: 100%;
+    justify-content: space-evenly;
+    position: relative;
+    top: 82px;
+    width: 100%;
+  }
 
   .header {
     align-items: flex-end;
