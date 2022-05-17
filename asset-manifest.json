@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/war-card-game/static/css/main.5a32f697.css",
+    "main.js": "/war-card-game/static/js/main.890ee01a.js",
+    "static/js/787.9b8b8382.chunk.js": "/war-card-game/static/js/787.9b8b8382.chunk.js",
+    "index.html": "/war-card-game/index.html",
+    "main.5a32f697.css.map": "/war-card-game/static/css/main.5a32f697.css.map",
+    "main.890ee01a.js.map": "/war-card-game/static/js/main.890ee01a.js.map",
+    "787.9b8b8382.chunk.js.map": "/war-card-game/static/js/787.9b8b8382.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5a32f697.css",
+    "static/js/main.890ee01a.js"
+  ]
+}
