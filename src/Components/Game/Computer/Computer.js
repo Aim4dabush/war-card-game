@@ -18,8 +18,19 @@ function Computer() {
         <h2>Pile: {computerPile?.length}</h2>
       </div>
       <div className="cards">
-        <Card />
-        <Card src={computerCard?.image} alt={computerCard?.code} />
+        <div className="deck-bg">
+          <Card />
+          <img
+            alt="deck bg"
+            className="deck-img"
+            src={process.env.PUBLIC_URL + "/images/playing_card_back.png"}
+          />
+        </div>
+        <Card
+          className="active-card"
+          src={computerCard?.image}
+          alt={computerCard?.code}
+        />
       </div>
     </ComputerCard>
   );

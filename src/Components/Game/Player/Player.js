@@ -17,8 +17,19 @@ function Player() {
         <h2>Pile: {playerPile?.length}</h2>
       </div>
       <div className="cards">
-        <Card />
-        {playerCard && <Card src={playerCard?.image} alt={playerCard?.code} />}
+        <div className="deck-bg">
+          <Card />
+          <img
+            alt="deck bg"
+            className="deck-img"
+            src={process.env.PUBLIC_URL + "/images/playing_card_back.png"}
+          />
+        </div>
+        <Card
+          className="active-card"
+          src={playerCard?.image}
+          alt={playerCard?.code}
+        />
       </div>
     </PlayerCard>
   );

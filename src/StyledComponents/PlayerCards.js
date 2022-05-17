@@ -1,5 +1,11 @@
 import styled from "styled-components";
-import { computerColor, playerColor, primaryColor, shadow } from "./Variables";
+import {
+  backgroundColor,
+  computerColor,
+  playerColor,
+  primaryColor,
+  shadow,
+} from "./Variables";
 
 const PlayersCard = styled.div`
   align-items: center;
@@ -19,6 +25,10 @@ export const PlayerCard = styled(PlayersCard)`
   justify-content: flex-end;
   left: 2px;
 
+  .active-card {
+    background-color: ${backgroundColor};
+  }
+
   .cards {
     display: flex;
     height: 100%;
@@ -26,6 +36,18 @@ export const PlayerCard = styled(PlayersCard)`
     position: relative;
     top: 12px;
     width: 100%;
+  }
+
+  .deck-bg {
+    position: relative;
+  }
+
+  .deck-img {
+    height: 350px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 250px;
   }
 
   .header {
@@ -49,6 +71,10 @@ export const ComputerCard = styled(PlayersCard)`
   left: 2px;
   top: 2px;
 
+  .active-card {
+    background-color: ${backgroundColor};
+  }
+
   .cards {
     display: flex;
     height: 100%;
@@ -56,6 +82,18 @@ export const ComputerCard = styled(PlayersCard)`
     position: relative;
     top: 82px;
     width: 100%;
+  }
+
+  .deck-bg {
+    position: relative;
+  }
+
+  .deck-img {
+    height: 350px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 250px;
   }
 
   .header {
