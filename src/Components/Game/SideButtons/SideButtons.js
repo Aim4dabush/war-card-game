@@ -22,11 +22,13 @@ function SideButtons({
   cardsDealt,
   computerCard,
   computerPile,
+  outOfCards,
   playerCard,
   playerPile,
   setCardsDealt,
   setComputerCard,
   setComputerPile,
+  setOutOfCards,
   setPlayerCard,
   setPlayerPile,
 }) {
@@ -66,7 +68,53 @@ function SideButtons({
     setPlayerDeck(deck.splice(0, 26));
   };
 
-  const handleFlipCards = () => {};
+  const handleFlipCards = () => {
+    setComputerCard(computerDeck.pop());
+    setPlayerCard(playerDeck.pop());
+    if (playerDeck.length === 0 || computerDeck.length === 0) {
+      setOutOfCards(true);
+    }
+
+    if (
+      (playerDeck.length === 0 && playerPile.length === 0) ||
+      (computerDeck.length === 0 && computerPile.length === 0)
+    ) {
+      setPauseGame(true);
+      setGameOver(true);
+    }
+
+    if (Number(playerCard.value) === Number(computerCard.value)) {
+      setDeck((prev) => {
+        return [...prev, playerCard, computerCard];
+      });
+    }
+
+    if (Number(playerCard.value) > Number(computerCard.value)) {
+      if (deck.length !== 0) {
+        setPlayerPile((prev) => {
+          return [...prev, ...deck, playerCard, computerCard];
+        });
+        setDeck([]);
+      } else {
+        setPlayerPile((prev) => {
+          return [...prev, playerCard, computerCard];
+        });
+      }
+    }
+
+    if (Number(playerCard.value) < Number(computerCard.value)) {
+      if (deck.length !== 0) {
+        setComputerPile((prev) => {
+          return [...prev, ...deck, computerCard, playerCard];
+        });
+        setDeck([]);
+      } else {
+        setComputerPile((prev) => {
+          return [...prev, computerCard, playerCard];
+        });
+      }
+    }
+  };
 
   const handleNewGame = () => {
     getDeck().then((cards) => {
@@ -75,15 +123,68 @@ function SideButtons({
       });
       setDeck(deck);
     });
+    setCardsDealt(false);
     setComputerCard({});
     setComputerDeck([]);
     setComputerPile([]);
+    setOutOfCards(false);
     setPlayerCard({});
     setPlayerDeck([]);
     setPlayerPile([]);
   };
 
-  const handleShuffle = () => {};
+  const handleShuffle = () => {
+    if (Number(playerCard.value) === Number(computerCard.value)) {
+      setComputerDeck((prev) => {
+        return [...prev, ...computerPile];
+      });
+      setDeck((prev) => {
+        return [...prev, playerCard, computerCard];
+      });
+      setPlayerDeck((prev) => {
+        return [...prev, ...playerPile];
+      });
+      setComputerPile([]);
+      setPlayerPile([]);
+      setOutOfCards(false);
+    }
+
+    if (Number(playerCard.value) > Number(computerCard.value)) {
+      if (deck.length !== 0) {
+        setPlayerDeck((prev) => {
+          return [...prev, ...deck, computerCard, playerCard, ...playerPile];
+        });
+      } else {
+        setPlayerDeck((prev) => {
+          return [...prev, computerCard, playerCard, ...playerPile];
+        });
+      }
+      setComputerDeck((prev) => {
+        return [...prev, ...computerPile];
+      });
+      setComputerPile([]);
+      setPlayerPile([]);
+      setOutOfCards(false);
+    }
+
+    if (Number(playerCard.value) < Number(computerCard.value)) {
+      if (deck.length !== 0) {
+        setComputerDeck((prev) => {
+          return [...prev, ...deck, playerCard, computerCard, ...computerPile];
+        });
+      } else {
+        setComputerDeck((prev) => {
+          return [...prev, playerCard, computerCard, ...computerPile];
+        });
+      }
+      setPlayerDeck((prev) => {
+        return [...prev, ...playerPile];
+      });
+      setComputerPile([]);
+      setPlayerPile([]);
+      setOutOfCards(false);
+    }
+  };
 
   return (
     <SideBar>
@@ -98,10 +199,10 @@ function SideButtons({
           </HoverBounce>
         </div>
       )}
-      {cardsDealt && (
+      {cardsDealt && !outOfCards && (
         <HoverFlip onClick={handleFlipCards}>Flip Cards</HoverFlip>
       )}
-      {cardsDealt && (playerDeck.length === 0 || computerDeck.length === 0) && (
+      {cardsDealt && outOfCards && (
         <HoverBounce className="shuffle" onClick={handleShuffle}>
           <span>Shuffle</span>
         </HoverBounce>

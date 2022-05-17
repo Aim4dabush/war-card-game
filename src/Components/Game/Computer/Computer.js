@@ -7,15 +7,15 @@ import { War } from "../../../App";
 import { Card } from "../../../StyledComponents/Card";
 import { ComputerCard } from "../../../StyledComponents/PlayerCards";
 
-function Computer({ computerCard }) {
+function Computer({ computerCard, computerPile }) {
   const { computerDeck } = useContext(War);
 
   return (
     <ComputerCard>
       <div className="header">
-        <h2>Deck: {computerDeck.length}</h2>
+        <h2>Deck: {computerDeck?.length}</h2>
         <h2>Computer</h2>
-        <h2>Pile: 0</h2>
+        <h2>Pile: {computerPile?.length}</h2>
       </div>
       <div className="cards">
         <Card />
