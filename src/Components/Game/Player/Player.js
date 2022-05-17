@@ -7,8 +7,8 @@ import { War } from "../../../App";
 import { Card } from "../../../StyledComponents/Card";
 import { PlayerCard } from "../../../StyledComponents/PlayerCards";
 
-function Player({ playerCard, playerPile }) {
-  const { playerDeck, playerName } = useContext(War);
+function Player() {
+  const { playerCard, playerDeck, playerName, playerPile } = useContext(War);
   return (
     <PlayerCard>
       <div className="header">
@@ -18,7 +18,7 @@ function Player({ playerCard, playerPile }) {
       </div>
       <div className="cards">
         <Card />
-        <Card src={playerCard.image} alt={playerCard.code} />
+        {playerCard && <Card src={playerCard?.image} alt={playerCard?.code} />}
       </div>
     </PlayerCard>
   );

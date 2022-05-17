@@ -14,12 +14,43 @@ import {
 import { ComputerWinsCard } from "../../../../StyledComponents/MainCard";
 import { HoverPulse } from "../../../../StyledComponents/Button";
 
+//Utilities
+import { getDeck } from "../../../../Utilities/Utilities";
+
 function ComputerWinsPage() {
-  const { setGameOver, setPauseGame } = useContext(War);
+  const {
+    setCardsDealt,
+    setComputerCard,
+    setComputerDeck,
+    setComputerPile,
+    setDeck,
+    setGameOver,
+    setOutOfCards,
+    setPauseGame,
+    setPlayerCard,
+    setPlayerDeck,
+    setPlayerPile,
+    setStartGame,
+  } = useContext(War);
 
   const handleNextGame = () => {
+    getDeck().then((cards) => {
+      const modDeck = cards.map((card) => {
+        return { code: card.code, image: card.image, value: card.value };
+      });
+      setDeck(modDeck);
+    });
+    setCardsDealt(false);
+    setComputerCard({});
+    setComputerDeck([]);
+    setComputerPile([]);
     setGameOver(false);
+    setOutOfCards(false);
     setPauseGame(false);
+    setPlayerCard({});
+    setPlayerDeck([]);
+    setPlayerPile([]);
+    setStartGame(true);
   };
 
   return (

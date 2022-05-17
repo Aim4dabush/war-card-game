@@ -3,7 +3,6 @@ import { computerColor, playerColor, primaryColor, shadow } from "./Variables";
 
 const PlayersCard = styled.div`
   align-items: center;
-  border-radius: 10px;
   color: ${primaryColor};
   display: flex;
   flex-direction: column;
@@ -14,6 +13,8 @@ const PlayersCard = styled.div`
 
 export const PlayerCard = styled(PlayersCard)`
   background-color: ${playerColor};
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   bottom: 2px;
   justify-content: flex-end;
   left: 2px;
@@ -43,6 +44,8 @@ export const PlayerCard = styled(PlayersCard)`
 
 export const ComputerCard = styled(PlayersCard)`
   background-color: ${computerColor};
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   left: 2px;
   top: 2px;
 

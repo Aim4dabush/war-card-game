@@ -11,12 +11,44 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { HoverPulse } from "../../../../StyledComponents/Button";
 import { PlayerWinsCard } from "../../../../StyledComponents/MainCard";
 
+//Utilities
+import { getDeck } from "../../../../Utilities/Utilities";
+
 function PlayerWinsPage() {
-  const { playerName, setGameOver, setPauseGame } = useContext(War);
+  const {
+    playerName,
+    setCardsDealt,
+    setComputerCard,
+    setComputerDeck,
+    setComputerPile,
+    setDeck,
+    setGameOver,
+    setOutOfCards,
+    setPauseGame,
+    setPlayerCard,
+    setPlayerDeck,
+    setPlayerPile,
+    setStartGame,
+  } = useContext(War);
 
   const handleNextGame = () => {
+    getDeck().then((cards) => {
+      const modDeck = cards.map((card) => {
+        return { code: card.code, image: card.image, value: card.value };
+      });
+      setDeck(modDeck);
+    });
+    setCardsDealt(false);
+    setComputerCard({});
+    setComputerDeck([]);
+    setComputerPile([]);
     setGameOver(false);
+    setOutOfCards(false);
     setPauseGame(false);
+    setPlayerCard({});
+    setPlayerDeck([]);
+    setPlayerPile([]);
+    setStartGame(true);
   };
 
   return (

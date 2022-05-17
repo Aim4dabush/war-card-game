@@ -18,29 +18,29 @@ import { SideBar } from "../../../StyledComponents/SideBar";
 //Utilities
 import { getDeck } from "../../../Utilities/Utilities";
 
-function SideButtons({
-  cardsDealt,
-  computerCard,
-  computerPile,
-  outOfCards,
-  playerCard,
-  playerPile,
-  setCardsDealt,
-  setComputerCard,
-  setComputerPile,
-  setOutOfCards,
-  setPlayerCard,
-  setPlayerPile,
-}) {
+function SideButtons() {
   const {
+    cardsDealt,
+    computerCard,
     computerDeck,
+    computerPile,
     deck,
+    outOfCards,
+    playerCard,
     playerDeck,
+    playerPile,
+    setCardsDealt,
+    setComputerCard,
     setComputerDeck,
+    setComputerPile,
     setDeck,
     setGameOver,
+    setOutOfCards,
     setPauseGame,
+    setPlayerCard,
     setPlayerDeck,
+    setPlayerPile,
+    setStartGame,
   } = useContext(War);
 
   const handleChangeName = () => {
@@ -118,51 +118,62 @@ function SideButtons({
 
   const handleNewGame = () => {
     getDeck().then((cards) => {
-      const deck = cards.map((card) => {
+      const modDeck = cards.map((card) => {
         return { code: card.code, image: card.image, value: card.value };
       });
-      setDeck(deck);
+      setDeck(modDeck);
     });
     setCardsDealt(false);
     setComputerCard({});
     setComputerDeck([]);
     setComputerPile([]);
+    setGameOver(false);
     setOutOfCards(false);
+    setPauseGame(false);
     setPlayerCard({});
     setPlayerDeck([]);
     setPlayerPile([]);
+    setStartGame(true);
   };
 
   const handleShuffle = () => {
     if (Number(playerCard.value) === Number(computerCard.value)) {
       setComputerDeck((prev) => {
-        return [...prev, ...computerPile];
+        return [...computerPile, ...prev];
       });
       setDeck((prev) => {
-        return [...prev, playerCard, computerCard];
+        return [playerCard, computerCard, ...prev];
       });
       setPlayerDeck((prev) => {
-        return [...prev, ...playerPile];
+        return [...playerPile, ...prev];
       });
+      setComputerCard({});
       setComputerPile([]);
+      setPlayerCard({});
       setPlayerPile([]);
       setOutOfCards(false);
     }
 
     if (Number(playerCard.value) > Number(computerCard.value)) {
       if (deck.length !== 0) {
+        setComputerDeck((prev) => {
+          return [...computerPile, ...prev];
+        });
+        setDeck([]);
         setPlayerDeck((prev) => {
-          return [...prev, ...deck, computerCard, playerCard, ...playerPile];
+          return [...deck, computerCard, playerCard, ...playerPile, ...prev];
         });
       } else {
+        setComputerDeck((prev) => {
+          return [...computerPile, ...prev];
+        });
         setPlayerDeck((prev) => {
-          return [...prev, computerCard, playerCard, ...playerPile];
+          return [computerCard, playerCard, ...playerPile, ...prev];
         });
       }
-      setComputerDeck((prev) => {
-        return [...prev, ...computerPile];
-      });
+      setComputerCard({});
       setComputerPile([]);
+      setPlayerCard({});
       setPlayerPile([]);
       setOutOfCards(false);
     }
@@ -170,22 +181,27 @@ function SideButtons({
     if (Number(playerCard.value) < Number(computerCard.value)) {
       if (deck.length !== 0) {
         setComputerDeck((prev) => {
-          return [...prev, ...deck, playerCard, computerCard, ...computerPile];
+          return [...deck, playerCard, computerCard, ...computerPile, ...prev];
         });
+        setPlayerDeck((prev) => {
+          return [...playerPile, ...prev];
+        });
+        setDeck([]);
       } else {
         setComputerDeck((prev) => {
-          return [...prev, playerCard, computerCard, ...computerPile];
+          return [playerCard, computerCard, ...computerPile, ...prev];
+        });
+        setPlayerDeck((prev) => {
+          return [...playerPile, ...prev];
         });
       }
-      setPlayerDeck((prev) => {
-        return [...prev, ...playerPile];
-      });
+      setComputerCard({});
       setComputerPile([]);
+      setPlayerCard({});
       setPlayerPile([]);
       setOutOfCards(false);
     }
   };
-
   return (
     <SideBar>
       <HoverBounce onClick={handleNewGame}>New Game</HoverBounce>

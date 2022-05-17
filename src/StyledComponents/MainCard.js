@@ -251,7 +251,7 @@ export const PlayerWinsCard = styled(MainCard)`
     color: ${playerColor};
   }
 
-  @keyframes ball {
+  @keyframes balloon {
     to {
       transform: translateY(-500px);
     }
@@ -290,34 +290,40 @@ export const ComputerWinsCard = styled(MainCard)`
   }
 
   .skullOne {
-    animation: balloon 2000ms infinite ease-out;
+    animation: skull 2000ms infinite ease-out;
   }
 
   .skullTwo {
-    animation: balloon 3000ms infinite ease-in-out;
+    animation: skull 3000ms infinite ease-in-out;
   }
 
   .skullThree {
-    animation: balloon 2750ms infinite ease-in;
+    animation: skull 2750ms infinite ease-in;
   }
 
   .skullFour {
-    animation: balloon 2500ms infinite ease-out;
+    animation: skull 2500ms infinite ease-out;
   }
 
   .skullFive {
-    animation: balloon 2250ms infinite ease-in-out;
+    animation: skull 2250ms infinite ease-in-out;
   }
 
   .skullSix {
-    animation: balloon 2500ms infinite ease-in;
+    animation: skull 2500ms infinite ease-in;
   }
 
   .skullSeven {
-    animation: balloon 2000ms infinite ease-in-out;
+    animation: skull 2000ms infinite ease-in-out;
   }
 
   .skullEight {
-    animation: balloon 2000ms infinite ease-out;
+    animation: skull 2000ms infinite ease-out;
+  }
+
+  @keyframes skull {
+    to {
+      transform: translateY(-500px);
+    }
   }
 `;

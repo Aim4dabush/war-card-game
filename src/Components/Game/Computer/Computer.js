@@ -7,8 +7,8 @@ import { War } from "../../../App";
 import { Card } from "../../../StyledComponents/Card";
 import { ComputerCard } from "../../../StyledComponents/PlayerCards";
 
-function Computer({ computerCard, computerPile }) {
-  const { computerDeck } = useContext(War);
+function Computer() {
+  const { computerCard, computerDeck, computerPile } = useContext(War);
 
   return (
     <ComputerCard>
@@ -19,7 +19,7 @@ function Computer({ computerCard, computerPile }) {
       </div>
       <div className="cards">
         <Card />
-        <Card src={computerCard.image} alt={computerCard.code} />
+        <Card src={computerCard?.image} alt={computerCard?.code} />
       </div>
     </ComputerCard>
   );
