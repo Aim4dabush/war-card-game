@@ -212,8 +212,7 @@ function SideButtons() {
     }
     console.log(arr);
   };
-  console.log("computer deck", computerDeck);
-  console.log("player deck", playerDeck);
+
   return (
     <SideBar>
       <HoverBounce onClick={handleNewGame}>New Game</HoverBounce>
