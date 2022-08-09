@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# War Card Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Deployed Site: [https://aim4dabush.github.io/war-card-game/](https://aim4dabush.github.io/war-card-game/)
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [War Card Game](#war-card-game)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+    - [Goals](#goals)
+    - [What I Learned](#what-i-learned)
+  - [Tools](#tools)
+    - [Built With](#built-with)
+    - [Useful Resources](#useful-resources)
+  - [Author](#author)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+We were assigned to create any game. I've always played this game has a kid and I really haven't come across a game like war so I thought it would be a great game to design.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Goals
 
-### `npm test`
+- Create any game
+- Have a way to keep score
+- Have a win/lose condition
+- Have a notification of a win/lose condition
+- Have the ability to reset the game and points
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### What I Learned
 
-### `npm run build`
+I learned a lot about the logic of creating a game. I used a lot of css `animation`, `transform`, and `transition` to create a more eye pleasing game. I had difficulty at first because I was trying to use the api to do the logic of the game but once I scrapped it and used my own javascript logic it was a breeze.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tools
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Built With
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- React
+- Styled Components
+- Sass
+- CSS
+- HTML
+- Fontawesome
 
-### `npm run eject`
+### Useful Resources
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Deck of Cards API: [https://deckofcardsapi.com/](https://deckofcardsapi.com/)
+- Sass: [https://sass-lang.com/](https://sass-lang.com/)
+- Styled Components: [https://styled-components.com/](https://styled-components.com/)
+- Fontawesome: [https://fontawesome.com/icons?d=gallery](https://fontawesome.com/icons?d=gallery)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Author
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Edward Arasato
+  - Profile Website: [https://aim4dabush.github.io/web-profile/](https://aim4dabush.github.io/web-profile/)
+  - LinkedIn: [https://www.linkedin.com/in/ed-arasato-74614112a/](https://www.linkedin.com/in/ed-arasato-74614112a/)
+  - Github: [https://github.com/Aim4dabush](https://github.com/Aim4dabush)
